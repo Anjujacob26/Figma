@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/figma-plugin-ds.css" />
+
+
+<style>
+  body{
+    padding: 2em;
+  }
+  div{
+    margin: 1em;
+  }
+  input{
+    display: block;
+  }
+</style>
+
+<h1>LOGIN</h1>
+
+<div>
+  <label for="username">Username</label>
+  <input class="input__field" type="text" placeholder="Your Username" id="username" />
+
+  <label for="name">Password</label>
+  <input class="input__field" type="password" placeholder="Your Password"  id="password" />
+</div>
+<div>
+  <button class="button button--primary" id="submit-post">Login</button>
+</div>
+
+
+<script>
+  document.getElementById("submit-post").onclick = () => {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      parent.postMessage({pluginMessage : {username, password}},'*')
+  }
+</script>
